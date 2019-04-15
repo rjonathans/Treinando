@@ -28,8 +28,7 @@ public class ContaBanco {
         this.setDono(teclado.nextLine());
 
         System.out.println("Qual o tipo de conta você deseja abrir? \n 1.CONTA POUPANÇA \n 2.CONTA CORRENTE");
-        Scanner teclado2 = new Scanner(System.in);
-        this.setTipo(teclado2.nextLine());
+        this.setTipo(teclado.nextLine());
         this.setStatus(true);
 
         depositar();
@@ -57,14 +56,14 @@ public class ContaBanco {
     public void depositar() {
 
         System.out.println("Gostaria de depositar algum valor? \n 1.SIM / 2 NÂO");
-        Scanner teclado3 = new Scanner(System.in);
-        String resposta = teclado3.nextLine();
+        Scanner teclado = new Scanner(System.in);
+        String resposta = teclado.nextLine();
 
         if (resposta.equals("1")){
 
             System.out.println("Digite o valor deseja depositar:");
-            Scanner teclado4 = new Scanner(System.in);
-            this.setSaldo(getSaldo()+ teclado4.nextDouble());
+            double valorDepositado = teclado.nextDouble();
+            this.setSaldo(getSaldo()+ valorDepositado);
             recolherTaxas();
 
         } else if (resposta.equals("2")){
